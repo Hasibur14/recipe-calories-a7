@@ -3,7 +3,7 @@ import banner from '../../assets/images/banner.png';
 
 const Banner = () => {
     return (
-        <div className='container mx-auto my-16'>
+        <div className='container mx-auto my-16 p-2 lg:p-0'>
             <div
                 className="relative lg:h-[70vh] rounded-3xl w-full bg-center bg-cover flex text-center items-center justify-center"
                 style={{ backgroundImage: `url(${banner})` }}>
@@ -14,7 +14,7 @@ const Banner = () => {
                     <div className="lg:flex items-center justify-center lg:space-x-5 ">
                         <button
                             className="btn lg:w-44 lg:h-16 rounded-full bg-[#1DD100] text-white text-xl hover:bg-transparent border-2 border-[#1DD100]">Explore Now</button>
-                        <button className='btn lg:w-44 lg:h-16 rounded-full hover:bg-green-900 text-white text-xl bg-transparent border-2 '>Our Feedback</button>
+                        <button className='btn lg:w-48 lg:h-16 rounded-full hover:bg-purple-500 text-white text-xl bg-transparent border-2 '>Our Feedback</button>
                     </div>
                 </div>
             </div>
