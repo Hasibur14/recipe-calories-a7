@@ -1,7 +1,7 @@
+// Recipe.js
 import PropTypes from 'prop-types';
 import cal from '../../assets/images/cal.png';
 import clock from '../../assets/images/clock.png';
-
 
 const Recipe = ({ recipe, handleCookBtn }) => {
 
@@ -20,9 +20,7 @@ const Recipe = ({ recipe, handleCookBtn }) => {
                         <ul>
                             {ingredients.map((ingredient, index) => (
                                 <li key={index + 1}> {ingredient}</li>
-
                             ))}
-
                         </ul>
                     </div>
                     <div className="flex space-x-14">
@@ -34,7 +32,6 @@ const Recipe = ({ recipe, handleCookBtn }) => {
                             <img src={cal} alt="" />
                             <span>{calories}calories</span>
                         </div>
-
                     </div>
                     <div className="card-actions justify-center mt-4">
                         <button onClick={() => handleCookBtn(recipe)}
@@ -46,12 +43,6 @@ const Recipe = ({ recipe, handleCookBtn }) => {
     );
 };
 
-
-
-
-
-
-
 Recipe.propTypes = {
     recipe: PropTypes.shape({
         recipe_image: PropTypes.string.isRequired,
@@ -60,7 +51,7 @@ Recipe.propTypes = {
         preparing_time: PropTypes.number.isRequired,
         ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
         calories: PropTypes.number.isRequired,
-        handleCookBtn:PropTypes.number.isRequired
+        handleCookBtn: PropTypes.func.isRequired
     }).isRequired,
 };
 

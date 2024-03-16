@@ -1,3 +1,4 @@
+// Recipes.js
 import { useEffect, useState } from "react";
 import Recipe from "../Recipe/Recipe";
 import RecipeTable from "../RecipeTable/RecipeTable";
@@ -5,6 +6,7 @@ import RecipeTable from "../RecipeTable/RecipeTable";
 const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [card, setCard] = useState([]);
+    const [currentlyCooking, setCurrentlyCooking] = useState([]);
 
     useEffect(() => {
         fetch('recipes.json')
@@ -13,8 +15,17 @@ const Recipes = () => {
     }, []);
 
     const handleCookBtn = (recipe) => {
-        const allRecipe = [...card, recipe];
-        setCard(allRecipe);
+        if (card.find(item => item.recipe_id === recipe.recipe_id)) {
+            alert("You have already selected this recipe!");
+            return;
+        }
+        setCard(prevCard => [...prevCard, recipe]);
+    };
+
+    const handlePreparingClick = (recipe) => {
+        const updatedCard = card.filter(item => item.recipe_id !== recipe.recipe_id);
+        setCard(updatedCard);
+        setCurrentlyCooking(prevCooking => [...prevCooking, recipe]);
     };
 
     return (
@@ -27,7 +38,7 @@ const Recipes = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                     {recipes.map(item => <Recipe key={item.recipe_id} recipe={item} handleCookBtn={handleCookBtn} />)}
                 </div>
-                <RecipeTable card={card} />
+                <RecipeTable card={card} currentlyCooking={currentlyCooking} handlePreparingClick={handlePreparingClick} />
             </div>
         </>
     );

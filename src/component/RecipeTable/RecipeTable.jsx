@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-const RecipeTable = ({ card }) => {
-    const [currentlyCooking, setCurrentlyCooking] = useState([]);
-
-    const handlePreparingClick = (recipe) => {
-        const updatedCard = card.filter(item => item !== recipe);
-        setCurrentlyCooking(prevCooking => [...prevCooking, recipe]);
-    };
+const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
+    
+    const totalCurrentlyCookingTime = currentlyCooking.reduce((total, recipe) => total + parseInt(recipe.preparing_time), 0);
+    const totalCalories = currentlyCooking.reduce((total, recipe) => total + parseInt(recipe.calories), 0);
+   
 
     return (
         <div>
@@ -22,13 +20,13 @@ const RecipeTable = ({ card }) => {
                     <span className="opacity-15 text-sm">Preparing</span>
                 </div>
                 <hr />
-                <div className="space-y-4 mt-2">
+                <div className=" space-y-4 mt-2">
                     {card.map((item, index) => (
                         <div key={index} className="card-info flex justify-around bg-gray-100 rounded-lg p-1">
                             <h5>{item.recipe_name}</h5>
                             <h5>{item.preparing_time} minutes</h5>
                             <h5>{item.calories} calories</h5>
-                            <button className="btn bg-green-500 text-white rounded-full" onClick={() => handlePreparingClick(item)}>Preparing</button>
+                            <button className="btn bg-green-500 text-white rounded-full " onClick={() => handlePreparingClick(item)}>Preparing</button>
                         </div>
                     ))}
                 </div>
@@ -51,6 +49,10 @@ const RecipeTable = ({ card }) => {
                             <h5>{item.calories} calories</h5>
                         </div>
                     ))}
+                </div>
+                <div className="flex justify-end space-x-32 lg:space-x-24 font-bold p-2">
+                    <h5>Total Time = <br /> {totalCurrentlyCookingTime} minutes</h5>
+                    <h5>Total Calories = <br /> {totalCalories} calories</h5>
                 </div>
             </div>
         </div>
