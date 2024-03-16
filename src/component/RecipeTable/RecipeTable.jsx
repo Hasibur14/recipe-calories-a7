@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
     
@@ -57,6 +57,12 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
             </div>
         </div>
     );
+};
+
+RecipeTable.propTypes = {
+    card: PropTypes.array.isRequired,
+    currentlyCooking: PropTypes.array.isRequired,
+    handlePreparingClick: PropTypes.func.isRequired,
 };
 
 export default RecipeTable;

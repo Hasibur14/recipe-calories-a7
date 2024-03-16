@@ -1,5 +1,7 @@
-// Recipes.js
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Recipe from "../Recipe/Recipe";
 import RecipeTable from "../RecipeTable/RecipeTable";
 
@@ -16,7 +18,7 @@ const Recipes = () => {
 
     const handleCookBtn = (recipe) => {
         if (card.find(item => item.recipe_id === recipe.recipe_id)) {
-            alert("You have already selected this recipe!");
+            toast.error("You have already selected this recipe!");
             return;
         }
         setCard(prevCard => [...prevCard, recipe]);
@@ -30,6 +32,7 @@ const Recipes = () => {
 
     return (
         <>
+            <ToastContainer />
             <div className="text-center justify-center my-10 space-y-4">
                 <h1 className="text-5xl font-bold">Our Recipes</h1>
                 <p className="text-xl">This personalized cooking experience promises to <br />elevate your culinary expertise</p>
