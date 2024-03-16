@@ -14,7 +14,7 @@ const Banner = () => {
                     <div className="lg:flex items-center justify-center lg:space-x-5 ">
                         <button
                             className="btn lg:w-44 lg:h-16 rounded-full bg-[#1DD100] text-white text-xl hover:bg-transparent border-2 border-[#1DD100]">Explore Now</button>
-                        <button className='btn lg:w-48 lg:h-16 rounded-full hover:bg-purple-500 text-white text-xl bg-transparent border-2 '>Our Feedback</button>
+                        <button className='btn lg:w-48 lg:h-16 rounded-full text-white hover:text-green-500 text-xl bg-transparent border-2 '>Our Feedback</button>
                     </div>
                 </div>
             </div>
