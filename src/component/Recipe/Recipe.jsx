@@ -60,6 +60,7 @@ Recipe.propTypes = {
         preparing_time: PropTypes.number.isRequired,
         ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
         calories: PropTypes.number.isRequired,
+        handleCookBtn:PropTypes.number.isRequired
     }).isRequired,
 };
 
