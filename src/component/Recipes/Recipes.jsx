@@ -34,11 +34,11 @@ const Recipes = () => {
         <>
             <ToastContainer />
             <div className="text-center justify-center my-10 space-y-4">
-                <h1 className="text-5xl font-bold">Our Recipes</h1>
-                <p className="text-xl">This personalized cooking experience promises to <br />elevate your culinary expertise</p>
+                <h1 className="text-3xl lg:text-5xl font-bold">Our Recipes</h1>
+                <p className="text-lg lg:text-xl">This personalized cooking experience promises to <br />elevate your culinary expertise.</p>
             </div>
-            <div className="lg:flex space-x-10 justify-between space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+            <div className="lg:flex  lg:space-x-10 justify-between ">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 p-2 lg:p-0">
                     {recipes.map(item => <Recipe key={item.recipe_id} recipe={item} handleCookBtn={handleCookBtn} />)}
                 </div>
                 <RecipeTable card={card} currentlyCooking={currentlyCooking} handlePreparingClick={handlePreparingClick} />

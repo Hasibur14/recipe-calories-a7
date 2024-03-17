@@ -13,7 +13,7 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick  }) => {
     };
 
     return (
-        <div>
+        <div className='mt-8 lg:mt-0 p-2 lg:p-0'>
             <div className="card lg:w-[600px] lg:h-[800px] bg-base-100 shadow-xl border-t-2 p-8">
                 <div>
                     <h2 className="card-title text-2xl font-bold justify-center text-center border-b-2">Want to cook: {card.length}</h2>
@@ -23,7 +23,7 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick  }) => {
                     <span>Name</span>
                     <span>Time</span>
                     <span>Calories</span>
-                    <span className="opacity-15 text-sm">Preparing</span>
+                    <span className="opacity-0 text-sm">Preparing</span>
                 </div>
                 <hr />
                 <div className=" space-y-4 mt-2">
@@ -37,6 +37,7 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick  }) => {
                         </div>
                     ))}
                 </div>
+                <br />
                 <hr />
                 <div>
                     <h2 className="card-title text-2xl font-bold justify-center text-center border-b-2 mt-8">Currently cooking: {currentlyCooking.length}</h2>
@@ -59,6 +60,8 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick  }) => {
                         </div>
                     ))}
                 </div>
+                <br />
+                <hr />
                 <div className="flex justify-end space-x-32 lg:space-x-24 font-bold p-2">
                     <h5>Total Time = <br /> {totalCurrentlyCookingTime} minutes</h5>
                     <h5>Total Calories = <br /> {totalCalories} calories</h5>

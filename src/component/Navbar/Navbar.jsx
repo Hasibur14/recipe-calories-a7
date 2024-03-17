@@ -21,7 +21,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <h3 className="raleway text-[#131318] text-4xl font-bold lg:ml-3">Rec<span
+                    <h3 className="raleway text-[#131318] text-2xl lg:text-4xl font-bold lg:ml-3">Rec<span
                         className="text-[#1DD100]">i</span>pe    Calor<span
                             className="text-[#1DD100]">i</span>es</h3>
                 </div>
