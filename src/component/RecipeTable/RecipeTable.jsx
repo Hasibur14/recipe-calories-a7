@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
-    
+const RecipeTable = ({ card, currentlyCooking, handlePreparingClick  }) => {
+    const [order, setOrder] = useState(1);
+
     const totalCurrentlyCookingTime = currentlyCooking.reduce((total, recipe) => total + parseInt(recipe.preparing_time), 0);
     const totalCalories = currentlyCooking.reduce((total, recipe) => total + parseInt(recipe.calories), 0);
-   
+
+    const handlePrepareClick = (item) => {
+        handlePreparingClick(item);
+        setOrder(order + 1);
+    };
 
     return (
         <div>
@@ -23,10 +29,11 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
                 <div className=" space-y-4 mt-2">
                     {card.map((item, index) => (
                         <div key={index} className="card-info flex justify-around bg-gray-100 rounded-lg p-1">
+                             <h5>{index + 1}</h5> 
                             <h5>{item.recipe_name}</h5>
                             <h5>{item.preparing_time} minutes</h5>
                             <h5>{item.calories} calories</h5>
-                            <button className="btn bg-green-500 text-white rounded-full " onClick={() => handlePreparingClick(item)}>Preparing</button>
+                            <button className="btn bg-green-500 text-white rounded-full" onClick={() => handlePrepareClick(item)}>Preparing</button>
                         </div>
                     ))}
                 </div>
@@ -36,6 +43,7 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
                 </div>
                 <hr />
                 <div className="flex justify-around text-lg font-semibold">
+                    <span></span>
                     <span>Name</span>
                     <span>Time</span>
                     <span>Calories</span>
@@ -44,6 +52,7 @@ const RecipeTable = ({ card, currentlyCooking, handlePreparingClick }) => {
                 <div className="space-y-4 mt-2">
                     {currentlyCooking.map((item, index) => (
                         <div key={index} className="card-info flex justify-around bg-gray-100 rounded-lg p-1">
+                            <h5>{index + 1}</h5> 
                             <h5>{item.recipe_name}</h5>
                             <h5>{item.preparing_time} minutes</h5>
                             <h5>{item.calories} calories</h5>
